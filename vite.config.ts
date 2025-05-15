@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-
 const isReplit = process.env.REPL_ID !== undefined;
 
 export default defineConfig(async () => {
@@ -27,7 +26,7 @@ export default defineConfig(async () => {
     server: {
       port: 4000,
       proxy: {
-        "/api": process.env.VITE_SERVER_PATH, // Proxies API calls to backend
+        "/api": import.meta.env.VITE_SERVER_PATH, // Proxies API calls to backend
       },
       historyApiFallback:true
     },
